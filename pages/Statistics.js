@@ -12,28 +12,16 @@ import {
   } from "react-native-chart-kit";
 import CovidModel from '../apis/covid-api1';
 
-export default Statistics = () => {
-    // const [state, setState] = useState("ca");
-    // const [chartData, setChartData] = useState({});
-
-    // useEffect(()=>{
-    //     console.log("hellooo")
-    //     CovidModel.byStateAbr(state).then((res)=>{
-    //         console.log("We made it !")
-    //         console.log(res.data)
-    //     })
-    // },[]);
+export default Statistics = ({ navigation, route}) => {
+    const { stateAbbrev } = route.params;
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <Header>
                 <Title>
-                    Statistics
+                    Statistics {stateAbbrev}
                 </Title>
             </Header>
-            <CovidPieChart/>
-            <Text>
-                Statistics
-            </Text>
+            <CovidPieChart stateAbbrev = {stateAbbrev}/>
             <Header>
                 <Text>Bezier Line Chart</Text>
                 <LineChart
@@ -80,7 +68,7 @@ export default Statistics = () => {
                     }}
                 />
             </Header>
-        </SafeAreaView>
+        </View>
     );
 }
 

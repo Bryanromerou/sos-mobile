@@ -8,8 +8,8 @@ import CovidModel from '../apis/covid-api1';
 import { Dimensions } from "react-native";
 
 
-export default PiePvS = () =>{
-    const [state, setState] = useState("ca");
+export default PiePvS = (props) =>{
+    const [state, setState] = useState(props.stateAbbrev);
     const [piecomponent, setPiecomponent] = useState(null);
     const [chartData, setChartData] = useState({});
 
