@@ -9,7 +9,7 @@ const HomeStack = createStackNavigator();
 export default homeStack = () =>{
     return (
         <NavigationContainer style={{width:"100%"}}>
-            <HomeStack.Navigator style={{width:"100%"}}>
+            <HomeStack.Navigator screenOptions={{headerShown: false}} style={{width:"100%"}}>
                 <HomeStack.Screen name="Home" component={Home} style={{width:"100%"}}/>
                 <HomeStack.Screen name="Statistics" component={Statistics}/>
             </HomeStack.Navigator>
