@@ -1,25 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, SafeAreaView} from 'react-native';
 import styled from 'styled-components';
+import Banner from '../components/Home/Banner';
+import GooglePlacesInput from '../components/Home/GoogleAutocomplete';
+import Map from '../components/Home/Map';
 
 export default Home = ({ navigation })=>{
-    const [darkmode, setDarkmode] = useState(false);
     const [state, setState] = useState("ca");
-    const clickHandler = ()=>{
-        setDarkmode(!darkmode);
-    }
-
+  
     return (
-        <SafeAreaView style={(darkmode) ? styles.containerLight :styles.containerDark}>
-            <Header>
-                <Text>
-                    Hello
-                </Text>
-            </Header>
-
-            <Text>Press on the button below to change to darkmode</Text>
-            <Button onPress = {clickHandler} title = "Dark Mode"/>
-            <Text>{String(darkmode)}</Text>
+        <SafeAreaView style={styles.containerDark}>
+            <Banner/>
+            <Map/>
+            <GooglePlacesInput changeHomeState = {setState}/>
             <Button onPress = {()=>navigation.push("Statistics",{stateAbbrev:state})} title = "Statistics"/>
             
             <View style = {styles.inputContainer}>
