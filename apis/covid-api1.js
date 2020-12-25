@@ -1,5 +1,6 @@
 import axios from 'axios';
-const url = "https://api.covidtracking.com/v1/us/daily.json"
+const url = "https://api.covidtracking.com/v1/us/daily.json";
+
 
 export default class {
     static all(){
@@ -19,5 +20,8 @@ export default class {
             }
         };
         return axios(config)
+    }
+    static stateHistory(state){
+        return axios.get(`https://api.covidtracking.com/v1/states/${state}/daily.json`);
     }
 }

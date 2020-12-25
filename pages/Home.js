@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, TextInput, SafeAreaView} from 'react-na
 import styled from 'styled-components';
 import Banner from '../components/Home/Banner';
 import GooglePlacesInput from '../components/Home/GoogleAutocomplete';
-import Map from '../components/Home/Map';
 
 export default Home = ({ navigation })=>{
     const [state, setState] = useState("ca");
@@ -11,12 +10,11 @@ export default Home = ({ navigation })=>{
     return (
         <SafeAreaView style={styles.containerDark}>
             <Banner/>
-            <Map/>
-            <GooglePlacesInput changeHomeState = {setState}/>
             <Button onPress = {()=>navigation.push("Statistics",{stateAbbrev:state})} title = "Statistics"/>
             
             <View style = {styles.inputContainer}>
                 <Text>Find Your City: </Text>
+                <GooglePlacesInput changeHomeState = {setState}/>
                 <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1 , backgroundColor: '#FFF', width: "70%"}} value ={state} onChangeText ={text => setState(text)}/>
             </View>
 

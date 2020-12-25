@@ -9,14 +9,20 @@ const GooglePlacesInput = (props) => {
         textInputContainer: {
           backgroundColor: 'grey',
           width: "70%",
+          padding: 0,
+          margin: 0,
         },
         textInput: {
           height: 38,
           color: '#5d5d5d',
           fontSize: 16,
+          padding: 0,
+          margin: 0,
         },
         predefinedPlacesDescription: {
           color: '#1faadb',
+          padding: 0,
+          margin: 0,
         },
       }}
       placeholder='Search'
@@ -33,6 +39,8 @@ const GooglePlacesInput = (props) => {
     />
   );
 };
+
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,

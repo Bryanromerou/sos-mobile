@@ -6,6 +6,7 @@ import {View, Text} from 'react-native';
 import styled from 'styled-components';
 import CovidModel from '../apis/covid-api1';
 import { Dimensions } from "react-native";
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 export default PiePvS = (props) =>{
@@ -25,9 +26,9 @@ export default PiePvS = (props) =>{
             barPercentage: 0.5,
             useShadowColorFromDataset: false // optional
           };
-        console.log("hellooo")
+        
         CovidModel.byStateAbr(state).then((res)=>{
-            console.log("We made it !")
+
             console.log(res.data.positive)
             const data = [
                 {
@@ -53,7 +54,7 @@ export default PiePvS = (props) =>{
                 accessor={"population"}
                 backgroundColor={"transparent"}
                 paddingLeft={"15"}
-                center={[10, 50]}
+                center={[10, 10]}
                 absolute/>)
         })
     },[]);
@@ -63,6 +64,7 @@ export default PiePvS = (props) =>{
             <Text>
                 Current state {state}
             </Text>
+            
             {
                 piecomponent
             }
